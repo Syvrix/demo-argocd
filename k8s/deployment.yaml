@@ -1,0 +1,29 @@
+
+apiVersion: apps/v1                                                       
+kind: Deployment                                                          
+metadata:                                                                 
+  name: syvrix-nginx-demo                                                        
+  labels:                                                                 
+    app: syvrix-nginx-demo                                                       
+spec:                                                                     
+  replicas: 2                                                             
+  selector:                                                               
+    matchLabels:                                                          
+      app: syvrix-nginx-demo                                                     
+  template:                                                               
+    metadata:                                                             
+      labels:                                                             
+        app: syvrix-nginx-demo                                                   
+    spec:                                                                 
+      containers:                                                         
+        - name: nginx                                                       
+          image: quay.io/kurs/demoserver-a:latest                                                 
+          ports:                                                            
+          - containerPort: 5000                                              
+          resources:                                                        
+            requests:                                                       
+              memory: "64Mi"                                                
+              cpu: "100m"                                                   
+            limits:
+              memory: "128Mi"
+              cpu: "200m"

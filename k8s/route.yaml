@@ -1,0 +1,11 @@
+apiVersion: route.openshift.io/v1                                         
+kind: Route                                                               
+metadata:                                                                 
+  name: syvrix-nginx-demo                                     
+  labels:                                                                 
+    app: syvrix-nginx-demo                                                       
+spec:                                                                     
+  to:                                                                     
+    kind: Service                                                         
+    name: syvrix-nginx-demo                                                      
+    weight: 100
